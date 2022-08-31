@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "@eslint-sets/react-ts"
+  ]
+}

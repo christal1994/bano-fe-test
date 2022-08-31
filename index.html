@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/ico" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no" />
+    <title>Bano 贝诺</title>
+    <meta name="title" property="og:title" content="Bano贝诺金融">
+    <meta name="description" property="og:description" content="2分钟在线开设多币种账户 - Bano贝诺金融">
+    <script>
+        function setRem() {
+          var clientWidth = document.documentElement.clientWidth;
+          var finalwidth = clientWidth > 768 ? 375 : clientWidth;
+          document.documentElement.style.fontSize = (finalwidth / 375) * 100 + 'px';
+        }
+        setRem();
+        (function () {
+          window.addEventListener('DOMContentLoaded', setRem, false);
+          window.addEventListener('orientationchange', setRem, false);
+          window.addEventListener('resize', setRem, false);
+        })();
+    </script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>

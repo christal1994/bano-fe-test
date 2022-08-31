@@ -1,0 +1,31 @@
+@height: .54;
+@item-height: ~'@{height}rem';
+
+:export {
+  itemHeight: @height
+}
+
+.list-wrapper {
+  position: relative;
+  max-height: 100vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  .item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: @item-height;
+  
+    .name {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: @item-height;
+      border-top: 1px solid #f5f5f5;
+      padding-left: 0.14rem;
+      font-size: 18px;
+    }
+  }
+}

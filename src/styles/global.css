@@ -1,0 +1,15 @@
+html {
+  max-width: 786px;
+  height: 100%;
+  margin: 0 auto;  
+}
+
+body {
+  height: 100%;
+  border: 1px solid #f9f9f9;
+}
+
+* { -ms-overflow-style: none; }
+* { overflow: -moz-scrollbars-none; }
+
+::-webkit-scrollbar{ display:none; }
