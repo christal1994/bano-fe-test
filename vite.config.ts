@@ -1,9 +1,9 @@
 import path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import svgr from 'vite-plugin-svgr';
 import legacy from '@vitejs/plugin-legacy';
 import autoprefixer from 'autoprefixer';
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
 export default defineConfig({
   resolve: {
@@ -14,7 +14,7 @@ export default defineConfig({
   },
   server: {
     port: 8080,
-    // host: '192.168.50.238',
+    host: '192.168.50.238',
   },
   css: {
     modules: {
@@ -33,12 +33,9 @@ export default defineConfig({
   },
   plugins: [
     react(),
+    svgr(),
     legacy({
       targets: ['defaults', 'not IE 9'],
-    }),
-    createSvgIconsPlugin({
-      iconDirs: [path.resolve(process.cwd(), 'src/icons')],
-      symbolId: 'icon-[name]',
     }),
   ],
 });

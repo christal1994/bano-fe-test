@@ -7,6 +7,7 @@ import s from './index.module.less';
 
 const App: FC = () => {
   const { searchValue, updateModalVisible } = useContext(SearchContext);
+
   const handleClick = () => {
     updateModalVisible(true);
   };

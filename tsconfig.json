@@ -15,7 +15,6 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["vite-plugin-svg-icons/client"],
     "baseUrl": ".",
     "paths": {
       "@component/*": ["src/components/*"],

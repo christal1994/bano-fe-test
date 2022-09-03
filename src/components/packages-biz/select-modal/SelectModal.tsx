@@ -1,7 +1,6 @@
-import type { FC } from 'react';
-import { useCallback, useContext, useEffect, useRef, useState } from 'react';
+import type { ChangeEvent, FC } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import Modal from '@component/packages-ui/modal';
-import type { InputRefValue } from '@component/packages-ui/input';
 import Input from '@component/packages-ui/input';
 import type { ItemProps } from '@component/packages-ui/list';
 import List from '@component/packages-ui/list';
@@ -31,17 +30,18 @@ const SelectModal: FC = () => {
     updateValue(country);
   };
 
-  const refInput = useRef<InputRefValue | null>(null);
-
-  const handleChange = useCallback(() => {
-    const val = refInput?.current?.getInput()?.value || '';
-    if (/[^a-zA-Z]/.test(val)) {
-      setResultText('Countries can only be made up of letters');
-    } else {
-      setResultText('No result');
-    }
-    updateValue(val);
-  }, [refInput?.current?.getInput()?.value]);
+  const handleChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const val = e.target.value;
+      if (/[^a-zA-Z]/.test(val)) {
+        setResultText('Countries can only be made up of letters');
+      } else {
+        setResultText('No result');
+      }
+      updateValue(val);
+    },
+    [searchValue],
+  );
 
   return (
     <Modal
@@ -49,12 +49,7 @@ const SelectModal: FC = () => {
       title="Choose a country or region"
       onClose={() => updateModalVisible(false)}
     >
-      <Input
-        ref={refInput}
-        value={searchValue}
-        onClear={() => updateValue('')}
-        onChange={handleChange}
-      />
+      <Input value={searchValue} onClear={() => updateValue('')} onChange={handleChange} />
 
       <div className={s['search-list']}>
         {searchValue && !countryList.length ? (

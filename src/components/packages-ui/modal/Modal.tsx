@@ -1,13 +1,15 @@
-import type { FC } from 'react';
+import type { FC, SyntheticEvent } from 'react';
+import { useCallback } from 'react';
+import { IconModalClose } from '@component/packages-ui/icon';
 import type { ModalProps } from './types';
 import s from './index.module.less';
 
 const Modal: FC<ModalProps> = (props) => {
   const { visible, onClose, title, children } = props;
 
-  const handleClose = (e: React.SyntheticEvent) => {
+  const handleClose = useCallback((e: SyntheticEvent) => {
     onClose?.(e);
-  };
+  }, []);
 
   return visible ? (
     <>
@@ -16,11 +18,7 @@ const Modal: FC<ModalProps> = (props) => {
         <div className={s.title}>
           <span className={s.text}>{title}</span>
 
-          <div className={s.close} onClick={handleClose}>
-            <svg aria-hidden="true">
-              <use href="#icon-close" fill="#999" />
-            </svg>
-          </div>
+          <IconModalClose onClick={handleClose} />
         </div>
 
         <div className={s.body}>{children}</div>

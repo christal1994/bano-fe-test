@@ -1,12 +1,6 @@
-type InputEleProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'>;
-
-export interface InputProps extends InputEleProps {
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   placeholder?: string;
   value?: string;
-  onChange?: () => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onClear?: () => void;
-}
-
-export interface InputRefValue extends InputEleProps {
-  getInput: () => HTMLInputElement | null;
 }

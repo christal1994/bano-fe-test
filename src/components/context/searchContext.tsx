@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import type { ReactElement } from 'react';
+import { createContext, useState } from 'react';
 
 interface SearchProviderProps {
   searchValue: string;
@@ -8,12 +9,11 @@ interface SearchProviderProps {
 }
 
 interface SearchContextProps {
-  children: React.ReactElement;
+  children: ReactElement;
 }
 
 const createProvider = (Context: typeof SearchContext) => {
-  // eslint-disable-next-line react/display-name
-  return (props: SearchContextProps) => {
+  const provider = (props: SearchContextProps) => {
     const [searchValue, setSearchValue] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -33,6 +33,8 @@ const createProvider = (Context: typeof SearchContext) => {
     };
     return <Context.Provider value={value}>{props.children}</Context.Provider>;
   };
+
+  return provider;
 };
 
 const defaultValue: SearchProviderProps = {
@@ -42,7 +44,8 @@ const defaultValue: SearchProviderProps = {
   updateModalVisible: () => {},
 };
 
-const SearchContext = React.createContext<SearchProviderProps>(defaultValue);
+const SearchContext = createContext<SearchProviderProps>(defaultValue);
 const SerachProvider = createProvider(SearchContext);
 
 export { SearchContext, SerachProvider };
+export type { SearchProviderProps };
