@@ -1,4 +1,4 @@
-# bano-fe-search
+# vite-react-ts
 
 ## Development
 
