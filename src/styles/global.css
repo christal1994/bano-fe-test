@@ -1,5 +1,5 @@
 html {
-  max-width: 786px;
+  max-width: 576px;
   height: 100%;
   margin: 0 auto;  
 }
@@ -15,44 +15,3 @@ body {
 ::-webkit-scrollbar{ display:none; }
 
 /* 设备值：https://devhints.io/resolutions */
-@media only screen and (min-width: 240px) {
-  html {
-    font-size: 74px;
-  }
-}
-
-@media only screen and (min-width: 320px) {
-  html {
-    font-size: 85px;
-  }
-}
-
-@media only screen and (min-width: 360px) {
-  html {
-    font-size: 100px;
-  }
-}
-
-@media only screen and (min-width: 410px) {
-  html {
-    font-size: 110px;
-  }
-}
-
-@media only screen and (min-width: 480px) {
-  html {
-    font-size: 128px;
-  }
-}
-
-@media only screen and (min-width: 568px) {
-  html {
-    font-size: 151px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  html {
-    font-size: 204px;
-  }
-}
